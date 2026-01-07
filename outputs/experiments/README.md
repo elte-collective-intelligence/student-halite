@@ -1,0 +1,1 @@
+In this directory all checkpoints and sample games are stored locally :D

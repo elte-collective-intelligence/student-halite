@@ -1,0 +1,7 @@
+# WandB API Key Configuration
+# This file is optional - if api_key is null/empty, wandb logging will be disabled
+# You can also set the API key via environment variable: WANDB_API_KEY
+
+api_key: null  # Set to your wandb API key, or leave as null to disable wandb
+project_name: student-halite  # Optional: wandb project name
+entity: null  # Optional: wandb entity/team name

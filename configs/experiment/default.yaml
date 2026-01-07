@@ -1,0 +1,17 @@
+# Default experiment configuration
+# Note: wb/api_key config - if api_key is null/empty, wandb logging will be disabled
+# and metrics will be logged to console instead
+defaults:
+  - wb/api_key
+
+seed: 22                # Random seed for reproducibility (used for numpy, torch, and cuda)
+num_episodes: 100       # Total number of training episodes
+log_frequency: 10       # Frequency (in episodes) for logging training metrics
+save_frequency: 500     # Frequency (in episodes) for saving model checkpoints
+model_save_path: models/        # Directory path for saving trained models
+checkpoint_path: checkpoints/   # Directory path for saving training checkpoints
+resume_from_checkpoint: false   # Whether to resume training from a checkpoint
+resume_experiment_name: null    # Experiment name to resume from (required if resume_from_checkpoint is true)
+resume_checkpoint_name: null    # Checkpoint filename to resume from (e.g., "ep5000.pt")
+eval_frequency: 5       # Frequency (in episodes) for running evaluation
+

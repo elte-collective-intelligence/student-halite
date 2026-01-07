@@ -1,0 +1,20 @@
+# @package _global_
+defaults:
+  - _self_
+  - /env: halite_small
+  - /algo: cql
+  - /experiment: default
+  - /evaluation: baseline_evaluation
+
+# Command line overrides
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: .
+  output_subdir: null
+
+# Experiment metadata
+experiment_name: cql_${random_hex:6}  # Unique experiment identifier with random suffix
+device: auto  # Device for training: 'auto' (auto-detect), 'cpu', or 'cuda'
+

@@ -1,0 +1,31 @@
+# Environment configuration for Halite
+_target_: src.env.env.Halite
+
+num_agents: 4                        # Number of agents in the environment
+grid_size: [20, 20]                  # Size of the game grid (width, height)
+reward_fn:                           # Reward function configuration
+  _target_: src.env.rewards.shaped.ShapedRewardFn
+  territory_weight: 1.0              # Weight for territory gain/loss in reward calculation
+  strength_weight: 0.05              # Weight for strength changes in reward calculation
+  production_weight: 0.3             # Weight for production values in reward calculation
+  expansion_bonus: 0.5               # Bonus reward for expanding into new territory
+  loss_penalty_multiplier: 1.5       # Multiplier for penalty when losing territory
+  zero_strength_move_penalty: 0.1    # Penalty for moving with zero strength
+  normalize: true                    # Whether to normalize rewards by grid size for stable learning
+
+# Alternative reward functions (uncomment to use):
+#
+# Shaped reward (territory + strength + production with bonuses):
+# reward_fn:
+#   _target_: src.env.rewards.shaped.ShapedRewardFn
+#   territory_weight: 1.0              # Weight for territory gain/loss in reward calculation
+#   strength_weight: 0.05              # Weight for strength changes in reward calculation
+#   production_weight: 0.3             # Weight for production values in reward calculation
+#   expansion_bonus: 0.5               # Bonus reward for expanding into new territory
+#   loss_penalty_multiplier: 1.5       # Multiplier for penalty when losing territory
+#   zero_strength_move_penalty: 0.1    # Penalty for moving with zero strength
+#   normalize: true                    # Whether to normalize rewards by grid size for stable learning
+#
+# Minimal reward (sparse rewards: +1 for winner, -1 for losers, 0 otherwise)
+# reward_fn:
+#   _target_: src.env.rewards.minimal.MinimalReward

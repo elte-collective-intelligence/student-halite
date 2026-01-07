@@ -1,0 +1,46 @@
+experiment_name: mappo_${random_hex:6}
+device: auto
+env:
+  _target_: src.env.env.Halite
+  num_agents: 4
+  grid_size:
+  - 20
+  - 20
+  reward_fn:
+    _target_: src.env.rewards.production_weighted_territory.ProductionWeightedTerritoryRewardFn
+    normalize: true
+    reward_scale: 5.0
+algo:
+  _target_: src.algo.mappo.MAPPO
+  lr_actor: 0.0005
+  lr_critic: 0.0015
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_epsilon: 0.2
+  value_coef: 0.5
+  entropy_coef: 0.01
+  max_grad_norm: 1.0
+  update_epochs: 6
+  shared_actor: true
+experiment:
+  wb:
+    api_key: 7f2f2a8d87bff57f4433adf3d9552bc669fffeaf
+    project_name: CI_halite
+  seed: 22
+  num_episodes: 30000
+  log_frequency: 250
+  save_frequency: 1000
+  model_save_path: models/
+  checkpoint_path: checkpoints/
+  eval_frequency: 250
+evaluation:
+  episodes: 10
+  opponent_bots:
+  - _target_: src.bots.rule_based.RuleBasedBot
+  - _target_: src.bots.rule_based_v1.RuleBasedV1
+  - _target_: src.bots.rule_based_v2.RuleBasedV2
+  - _target_: src.bots.random_bot.RandomBot
+  save_dir: halite_stats
+  hydra:
+    job:
+      chdir: false

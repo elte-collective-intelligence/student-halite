@@ -1,0 +1,8 @@
+#!/bin/bash
+# Convenience wrapper for evaluation - can be run from project root
+# Usage: ./eval [hydra_overrides...]
+
+exec "$(dirname "$0")/docker/eval.sh" "$@"
+
+
+

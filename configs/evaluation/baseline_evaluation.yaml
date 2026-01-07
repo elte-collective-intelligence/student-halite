@@ -1,0 +1,17 @@
+# Evaluation configuration
+defaults:
+  - _self_
+
+episodes: 10           # Number of evaluation episodes to run per bot type
+opponent_bots:         # List of opponent bot types to evaluate against
+  - _target_: src.bots.rule_based.RuleBasedBot
+  - _target_: src.bots.rule_based_v1.RuleBasedV1
+  - _target_: src.bots.rule_based_v2.RuleBasedV2
+  - _target_: src.bots.random_bot.RandomBot
+save_dir: halite_stats # Directory path for saving evaluation statistics
+
+# Hydra settings
+hydra:
+  job:
+    chdir: false
+

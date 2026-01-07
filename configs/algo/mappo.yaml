@@ -1,0 +1,14 @@
+# Multi-Agent Proximal Policy Optimization algorithm configuration
+_target_: src.algo.mappo.MAPPO
+
+lr_actor: 0.0005      # Learning rate for actor (policy) network optimization
+lr_critic: 0.0015     # Learning rate for critic (value) network optimization
+gamma: 0.99           # Discount factor for future rewards
+gae_lambda: 0.95      # Lambda parameter for Generalized Advantage Estimation (GAE)
+clip_epsilon: 0.2     # Clipping parameter for PPO policy update (prevents large policy changes)
+value_coef: 0.5       # Coefficient for value loss in total loss function
+entropy_coef: 0.01    # Coefficient for entropy bonus (encourages exploration)
+max_grad_norm: 1.0    # Maximum gradient norm for gradient clipping (prevents exploding gradients)
+update_epochs: 6      # Number of training epochs per batch of collected experiences
+shared_actor: true    # Whether to share actor network weights across all agents
+

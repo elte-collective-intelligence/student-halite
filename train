@@ -1,0 +1,8 @@
+#!/bin/bash
+# Convenience wrapper for training - can be run from project root
+# Usage: ./train [algorithm] [hydra_overrides...]
+
+exec "$(dirname "$0")/docker/train.sh" "$@"
+
+
+

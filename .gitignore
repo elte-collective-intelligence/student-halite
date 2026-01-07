@@ -1,0 +1,56 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# API keys and secrets
+.env
+.env.local
+*.key
+secrets.yaml
+secrets.yml
+*.pem
+*.p12
+credentials.json
+config.local.yaml
+config.local.yml
+
+# Checkpoints and model files
+# Only ignore model files in checkpoint directories
+models/*/checkpoint/*.pt
+models/*/checkpoint/*.pth
+models/*/checkpoint/*.ckpt
+models/*/checkpoint/*.h5
+models/*/checkpoint/*.pkl
+models/*/checkpoint/*.weights
+checkpoints/
+
+# Wandb
+wandb/
+
+# Outputs and logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/

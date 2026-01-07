@@ -1,0 +1,18 @@
+defaults:
+  - _self_
+
+grid_search:            # Grid search hyperparameter configuration
+  base_strength_range: [20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220]  # Range of base_strength values to test
+  production_enemy_preference_range: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]  # Range of production_enemy_preference values to test
+  episodes: 100         # Number of episodes to run for each hyperparameter combination
+  seed: 42              # Random seed for grid search experiments
+evaluation:             # Fixed environment settings for evaluation
+  grid_size: [20, 20]   # Size of the game grid (width, height)
+  num_agents: 4         # Total number of agents (1 test bot + 3 opponents with random configurations)
+
+hydra:                 # Hydra framework configuration
+  run:
+    dir: null          # Output directory for Hydra runs (null uses default)
+  job:
+    chdir: false       # Whether to change working directory to job output directory
+
